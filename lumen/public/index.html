@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="icon" id="favicon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <canvas id="stars"></canvas>
+  <div class="glow g1"></div><div class="glow g2"></div>
+
+  <!-- HOME -->
+  <main id="home">
+    <h1 class="logo">lumen</h1>
+
+    <form id="search" autocomplete="off">
+      <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" placeholder="Find a lesson..." spellcheck="false" />
+    </form>
+
+    <div id="grid" class="grid"></div>
+
+    <button id="trendingBtn" class="pill">
+      <svg viewBox="0 0 24 24"><path d="M12 3s5 4.5 5 10a5 5 0 0 1-10 0c0-2.2 1-3.7 2-4.7 0 2 1 3.2 2 3.2 0-3 1-6 1-8.5z"/></svg>
+      Trending
+    </button>
+  </main>
+
+  <!-- GAMES -->
+  <section id="games" class="page hidden">
+    <div class="page-head">
+      <button class="back" data-home>
+        <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <h2>Play</h2>
+      <input id="gameSearch" placeholder="Search games..." />
+    </div>
+    <div id="gameGrid" class="game-grid"></div>
+  </section>
+
+  <!-- BROWSER -->
+  <section id="browser" class="hidden">
+    <div class="tabbar">
+      <div id="tabs" class="tabs"></div>
+      <button id="newTab" class="tb-btn" title="New tab"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+    </div>
+    <div class="navbar">
+      <button class="tb-btn" data-home title="Home"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg></button>
+      <button id="bBack" class="tb-btn" title="Back"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button id="bFwd" class="tb-btn" title="Forward"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+      <button id="bReload" class="tb-btn" title="Reload"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button>
+      <form id="urlForm" class="urlbar"><input id="url" spellcheck="false" placeholder="Search or enter address" /></form>
+      <button id="bFull" class="tb-btn" title="Fullscreen"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+    </div>
+    <div id="frames" class="frames"></div>
+  </section>
+
+  <footer>
+    <button data-modal="links"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Links</button>
+    <button data-modal="settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-2.9 1.2V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-2.9-1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.7 1.7 0 0 0 3 14H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.7 1.7 0 0 0 10 3.1V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 2.9 1.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0 1.2 2.9H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Settings</button>
+    <button id="resetLocal" class="danger"><svg viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg>Reset local</button>
+    <button id="openTabs"><svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5zM3 13l9 5 9-5"/></svg>Tabs</button>
+  </footer>
+
+  <!-- MODALS -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <button class="close" id="modalClose"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="/scram/scramjet.all.js"></script>
+  <script src="/baremux/index.js"></script>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
