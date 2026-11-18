@@ -13,7 +13,7 @@ const baremuxPath = join(__dirname, "node_modules/@mercuryworkshop/bare-mux/dist
 const epoxyPath = join(__dirname, "node_modules/@mercuryworkshop/epoxy-transport/dist");
 
 logging.set_level(logging.WARN);
-wisp.options.dns_method = "resolve";
+wisp.options.dns_method = "resolve";wisp.options.dns_result_order = "ipv4first";
 wisp.options.dns_servers = ["1.1.1.3", "1.0.0.3"]; // Cloudflare family DNS (blocks malware/adult)
 
 const app = express();
